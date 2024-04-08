@@ -16,3 +16,30 @@
   </body>
 </html>
 ```
+
+## 1.1. 데이터 출력
+
+- innerHTML : 브라우저 안에 있는 HTML 요소에 데이터 출력
+- document.write() : 브라우저에 간단한 데이터 출력. 사용 비추천.
+- alert() : 알림창에 데이터 출력
+- console.log() : 브라우저 콘솔에 데이터 출력
+
+### 1.1.1. innerHTML
+
+### 1.1.2. document.write()
+
+```js
+<script>document.write(10 + 40);</script>
+```
+
+### 1.1.3. alert()
+
+```js
+<script>document.write(10 + 40);</script>
+```
+
+### 1.1.4. console.log()
+
+```js
+<script>console.log(10 + 40);</script>
+```
