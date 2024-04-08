@@ -1,45 +1,35 @@
-# 1. html에 script 써보기
+# 2. 변수
 
-```html
-<!DOCTYPE html>
-<html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>자바스크립트 스터디</title>
-  </head>
-  <body>
-    <p id="show"></p>
-    <script>
-      document.getElementById("show").innerHTML = "안녕하세요.";
-    </script>
-  </body>
-</html>
-```
+- 데이터가 컴퓨터 메모리에 저장되는 주소
 
-## 1.1. 데이터 출력
+# 2.1. 변수 선언
 
-- innerHTML : 브라우저 안에 있는 HTML 요소에 데이터 출력
-- document.write() : 브라우저에 간단한 데이터 출력. 사용 비추천.
-- alert() : 알림창에 데이터 출력
-- console.log() : 브라우저 콘솔에 데이터 출력
-
-### 1.1.1. innerHTML
-
-### 1.1.2. document.write()
+- 변수 선언 키워드 : var, let, const
+- var : 전역 변수, 다른 파일에서도 접근이 가능하기 때문에 var 사용 비추천
+- const : 재할당 불가
+- let : 재할당 가능
+- const 주로 사용 이 외의 경우는 let으로 사용.
 
 ```js
-<script>document.write(10 + 40);</script>
+let keyword = "키워드 let으로 변수 name을 선언했다.";
+console.log(keyword);
+
+// 필요에 따라 값을 재할당 할 수 있다.
+keyword = "변수 name에 홀길동 저장";
+console.log(keyword);
 ```
 
-### 1.1.3. alert()
+## 2.2. 변수 이름 짓기
+
+- 변수 이름에는 영어, 숫자, 밑줄, $ 사용가능
+- **주의! 숫자로 시작하면 안됨**
+- 대소문자 구분
+- 일반적으로 카멜케이스 사용
 
 ```js
-<script>document.write(10 + 40);</script>
-```
-
-### 1.1.4. console.log()
-
-```js
-<script>console.log(10 + 40);</script>
+const a = 5;
+const font1 = "돋움";
+const _price = 30000;
+const maxWidth = 600;
+const max_width = 800;
 ```
