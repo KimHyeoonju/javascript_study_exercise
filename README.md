@@ -99,3 +99,35 @@ console.log(member.name);
 
 - number, string, boolean 과 같은 원시데이터
 - 유일한 식별자로서 객체의 속성을 추가하는데 사용
+
+```js
+const member = {
+  name: "홍길동",
+  age: 20,
+};
+
+// Symbol() 로 심볼 id 생성
+let id = Symbol("id");
+// 객체 member 의 키 id에 문자열 "kdhong" 저장
+// 심볼 id 가 객체의 키로 사용되면 심볼 데이터형은
+// 유일한 식별자이기 때문에 객체의 키 이름이 겹쳐서 충돌하는 경우 방지
+
+// member.id = "kdhong";
+member[id] = "kdhong";
+
+// 객체 member 에서 심볼 id가 키로 사용된 요소는
+// member[id]에 의해 접근 할 수 있다.
+// 심볼 id 와 새롭게 생성된 Symbol("id") 는 서로 다르다.
+
+console.log(id === Symbol("id"));
+```
+
+## 3.8. 배열 array
+
+- index 는 0 부터 시작
+
+```js
+const car = ["현대", "기아", "벤츠", "BMW"];
+
+console.log(car[0]);
+```
