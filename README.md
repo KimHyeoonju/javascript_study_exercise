@@ -1,74 +1,101 @@
-# 4. 연산자
+# 6. if 문
 
-- 산술연산자
-- 할당연산자
-- 비교연산자
-- 논리연산자
+## 6.1. if ~ 구문
 
-## 4.1. 산술연산자
+- 참, 거짓에 따라 특정 코드의 실행을 제어한다.
 
 ```txt
-+
--
-*
-/ : 나누기 - 값
-% : 나누기 - 나머지
-** : 거듭제곱
-++ : 1 증가
--- : 1 감소
-```
-
-## 4.2. 할당연산자
-
-- 할당(assign) 연산자는 데이터나 변수 값을 변수에 저장. 즉, 메모리 공간에 할당하는 역할
-
-```js
-let a = 10,
-  b = 20,
-  c = 30,
-  d = 40,
-  e = 50;
+if(조건식){
+  문장;
+  ...
+}
 ```
 
 ```js
-let username = "홍길동";
-let tel = "010-1234-5678";
-let age = 30;
+let x = 10000; // 입장료 10000원
+let age = 70;
 
-let text = "";
+if (age >= 65) {
+  // 입장료 0원
+  x = 0;
 
-text += "<table border=1>";
+  // return;
+}
 
-text += "<tr><th>이름</th><th>전화번호</th><th>나이</th></tr>";
+console.log(`입장료 : ${x} 원`);
 
-text +=
-  "<tr><td>" + username + "</td><td>" + tel + "</td><td>" + age + "</td></tr>";
+// 웹사이트 관리자는 아이디(id) 가 admin 이거나 level 이 1인 경우라는 가정
+// 관리자일 경우 "관리자입니다." 라고 출력
 
-text += "</table>";
+let id = "admin";
+let level = 5;
 
-document.write(text);
+if (id === "admin" || level === 1) {
+  console.log("관리자입니다.");
+}
+
+// 필기시험 성적과 실기시험 성적 모두 80점 이상이면 합격
+let score1 = 95; //필기
+let score2 = 80; //실기
+
+if (score1 >= 80 && score2 >= 80) {
+  console.log("합격");
+}
 ```
 
-## 4.3. 비교연산자
+## 6.2. if ~ else ~ 구문
+
+```txt
+if(조건식){
+  문장;
+  ...
+} else {
+  문장;
+  ...
+}
+```
 
 ```js
-let a = 3,
-  b = "3",
-  c = 5,
-  d = 3;
+let num = 9;
 
-console.log(a == b); // true
-console.log(a === b); //false
-console.log(a != b); //false
-console.log(a !== b); // true
-console.log(a > c); //false
-console.log(a < c); // true
-console.log(a >= c); //false
-console.log(a <= c); // true
+if (num % 2 == 0) {
+  console.log(`${num} 은(는) 짝수입니다.`);
+} else {
+  console.log(`${num} 은(는) 홀수입니다.`);
+}
+
+// 70점 이상이면 합격, 그렇지 않으면 불합격
+let scroe = 65;
+let result = "";
+
+if (scroe >= 70) {
+  result = "합격";
+} else {
+  result = "불합격";
+}
+
+console.log(result);
 ```
 
-## 4.4. 논리연산자
+## 6.3. if ~ else if ~ else 구문
 
-- && : AND 두 조건이 모두 true 일 경우에만 true 를 반환
-- || : OR 두 조건 중 하나이상 true 일 경우 true 를 반환
-- ! : NOT 결과가 true 인 경우 false 를 반환, 반대로 false 인 경우 true 를 반환
+## 7. switch 문
+
+- if문과 유사한 방식으로 동작
+
+```js
+// 괄호 안에 있는 변수의 값에 따라
+switch (변수) {
+  // 해당 case에 있는 문장들이 실행
+  case 값1:
+    문장;
+    ...
+    break;
+  case 값2:
+    문장;
+    ...
+    break;
+  default:
+    문장;
+}
+```
