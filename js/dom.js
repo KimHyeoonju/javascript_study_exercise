@@ -1,7 +1,7 @@
-function changeImg() {
-  document.getElementById("image").src = `images/image-5.png`;
-}
+const elem = document.createElement("p");
+const text = document.createTextNode("변경한 단락");
 
-function changeSize() {
-  document.getElementById("image").width = "50";
-}
+elem.appendChild(text);
+
+const p1 = document.getElementById("p1");
+document.getElementById("box").replaceChild(elem, p1);

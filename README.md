@@ -62,21 +62,19 @@ function get_name() {
 }
 ```
 
-## 14.4. HTML 요소 선택
+## 14.4 HTML 요소 선택
 
-- 자바스크립트에서 웹 페이지에 있는 HTML 요소를 추가, 수정, 삭제 하는 방법
+- 자바스크립트에서 웹페이지에 있는 HTML 요소를 추가, 수정, 삭제하는 방법
 - 제일 먼저 페이지 내에 존재하는 해당 요소를 선택
+  - 아이디(id) 이용
+  - 태그 이름(tag name) 이용
+  - 클래스 이름(class name) 이용
+  - CSS 선택자(selector) 이용
+  - 객체 콜렉션(object collection) 이용
 
-- 아이디(id) 이용
-- 태그 이름(tag name) 이용
-- 클래스 이름(class name) 이용
-- CSS 선택자(selector) 이용
-- 객체 콜렉션(object collection) 이용
-
-### 14.4.1. 아이디로 요소 선택하기
+### 14.4.1 아이디로 요소 선택하기
 
 - 요소의 id
-
 - getElementById() 메서드
 
 ```html
@@ -84,11 +82,10 @@ function get_name() {
   <p id="p1">안녕하세요.</p>
   <button onclick="changeColor('red')">빨강</button>
   <button onclick="changeColor('blue')">파랑</button>
+
   <script src="js/dom.js"></script>
 </body>
 ```
-
-- js/dom.js
 
 ```js
 function changeColor(new_color) {
@@ -97,10 +94,10 @@ function changeColor(new_color) {
 }
 ```
 
-### 14.4.2. 태그 이름으로 요소 선택하기
+### 14.4.2 태그 이름으로 요소 선택하기
 
-- getElementsByIdTagName() 메서드
-- HTML 태그 이름으로 요소 선택
+- getElementsByTagName() 메서드
+- HTML 태그이름으로 요소선택
 
 ```html
 <body>
@@ -112,11 +109,10 @@ function changeColor(new_color) {
     <p>안녕5</p>
   </div>
   <p id="show"></p>
+
   <script src="js/dom.js"></script>
 </body>
 ```
-
-- js/dom.js
 
 ```js
 const parent = document.getElementById("parent");
@@ -126,7 +122,7 @@ const p = parent.getElementsByTagName("p");
 p[2].style.color = "red";
 ```
 
-### 14.4.3. 클래스 이름으로 요소 선택하기
+### 14.4.3 클래스 이름으로 요소 선택하기
 
 - getElementsByClassName()
 
@@ -140,6 +136,7 @@ p[2].style.color = "red";
     <p class="a">안녕5</p>
   </div>
   <p id="show"></p>
+
   <script src="js/dom.js"></script>
 </body>
 ```
@@ -149,12 +146,10 @@ const parent = document.getElementById("parent");
 
 const p = parent.getElementsByClassName("a");
 
-for (let i = 0; i < p.length; i++) {
-  p[i].style.color = "red";
-}
+for (let i = 0; i < p.length; i++) p[i].style.color = "red";
 ```
 
-### 14.4.4. CSS 선택자로 요소 선택하기
+### 14.4.4 CSS 선택자로 요소 선택하기
 
 - querySelector()
 
@@ -168,17 +163,17 @@ x.style.backgroundColor = "pink";
 
 ```html
 <body>
-    <h1 id="title">글 제목</h1>
-    <p>단락</p>
-    <ul>
-      <li>항목1</li>
-      <li class="item">항목2</li></li>
-      <li class="item">항목3</li></li>
-      <li class="item">항목4</li></li>
-    </ul>
+  <h1 id="title">글 제목</h1>
+  <p>단락1</p>
+  <ul>
+    <li>항목1</li>
+    <li class="item">항목2</li>
+    <li class="item">항목3</li>
+    <li class="item">항목4</li>
+  </ul>
 
-    <script src="js/dom.js"></script>
-  </body>
+  <script src="js/dom.js"></script>
+</body>
 ```
 
 ```js
@@ -191,21 +186,22 @@ y[0].style.backgroundColor = "green";
 z[1].style.backgroundColor = "blue";
 ```
 
-## 14.5. HTML 요소 내용과 속성
+## 14.5 HTML 요소 내용과 속성
 
-### 14.5.1. 요소 내용 가져오기
+### 14.5.1 요소 내용 가져오기
 
-- 자바스크립트에서 HTML 요소의 내용을 가져오는 데는
+- 자바스크립에서 HTML 요소의 내용을 가져오는 데는
 - innerHTML
 - innerText
 
 ```js
 const x = document.getElementById("p1");
+
 alert(x.innerHTML);
 alert(x.innerText);
 ```
 
-### 14.5.2. 요소 내용 설정하기
+### 14.5.2 요소 내용 설정하기
 
 ```html
 <body>
@@ -216,26 +212,29 @@ alert(x.innerText);
     <li></li>
     <li></li>
   </ul>
+
   <script src="js/dom.js"></script>
 </body>
 ```
 
 ```js
 const x = document.querySelectorAll("li");
-x[2].innerHTML = `<span style="color:red">텍스트1</span>`;
+
+x[2].innerHTML = `<span style="color: red">텍스트1</span>`;
 x[3].innerHTML = "텍스트2";
-x[4].innerHTML = "텍스트3";
+x[4].innerText = "텍스트3";
 ```
 
-### 14.5.3. 요소 속성 값 변경하기
+### 14.5.3 요소 속성 값 변경하기
 
 - HTML 요소의 속성(attribute) 값 변경
 
 ```html
 <body>
-  <img id="image" src="images/Image.png" alt="기본이미지" />
+  <img id="image" src="images/image.png" alt="기본이미지" />
   <button onclick="changeImg()">이미지 변경</button>
   <button onclick="changeSize()">이미지 사이즈 변경</button>
+
   <script src="js/dom.js"></script>
 </body>
 ```
@@ -250,7 +249,7 @@ function changeSize() {
 }
 ```
 
--JQuery
+- jQuery
 
 ```js
 // 이미지 변경 함수
@@ -264,4 +263,159 @@ function changeSize() {
 }
 ```
 
-## 14.6. Document 객체의 프로퍼티
+## 14.6 Document 객체의 프로퍼티
+
+- URL: HTML 문서의 URL을 반환
+- title: HTML 문서의 제목을 설정하거나 반환
+- forms
+- links
+- images
+
+### 14.6.1 URL 프로퍼티
+
+```js
+document.getElementById("show").innerHTML = document.URL;
+```
+
+### 14.6.2 title 프로퍼티
+
+```js
+document.getElementById("show").innerHTML = document.title;
+
+document.title = "새로운 문서 제목";
+```
+
+### 14.6.3 forms 프로퍼티
+
+```html
+<body>
+  <form id="form1">
+    아이디 : <input type="text" name="uid" /><br />
+    이름 : <input type="text" name="name" /><br />
+    비밀번호 : <input type="password" name="upw" /><br />
+  </form>
+  <button onclick="getInfo()">확인</button>
+
+  <p id="show"></p>
+
+  <script src="js/dom.js"></script>
+</body>
+```
+
+```js
+function getInfo() {
+  const info = document.forms["form1"];
+  let text = "";
+  for (let i = 0; i < info.length; i++) {
+    text += info.elements[i].value + "<br>";
+  }
+  document.getElementById("show").innerHTML = text;
+}
+```
+
+## 14.7. DOM 노드
+
+- DOM 트리의 가장 기본이 되는 HTML 요소, 속성, 텍스트 등은 모두 노드(node)에 속한다.
+
+### 14.7.1. 노드의 종류
+
+- 요소노드(element node)
+- 속성 노드(attribute node)
+- 텍스트 노드(text node)
+- 문서 노드(document node)
+- 주석 노드(comment node)
+- DOM 트리의 최상위 : root node
+- root node 외 모든 node는 단 하나의 부모 노드만 가진다.
+- root node 를 포함한 모든 node는 하나 또는 여러 개의 자식 노드를 가질 수 있다.
+
+### 14.7.2. 노드 추가하기
+
+```html
+<body>
+  <div id="box">
+    <p>단락1</p>
+    <p>단락2</p>
+  </div>
+
+  <script src="js/dom.js"></script>
+</body>
+```
+
+```js
+const elem = document.createElement("p");
+
+const text = document.createTextNode("새로운 단락");
+
+elem.appendChild(text);
+
+document.getElementById("box").appendChild(elem);
+```
+
+### 14.7.3. 노드 삽입하기
+
+```html
+<body>
+  <div id="box">
+    <p id="p1">단락1</p>
+    <p id="p2">단락2</p>
+  </div>
+
+  <script src="js/dom.js"></script>
+</body>
+```
+
+```js
+const elem = document.createElement("p");
+
+const text = document.createTextNode("새로운 단락");
+
+elem.appendChild(text);
+
+const p2 = document.getElementById("p2");
+
+document.getElementById("box").insertBefore(elem, p2);
+```
+
+### 14.7.4. 노드 삭제하기
+
+```html
+<body>
+  <div id="box">
+    <p id="p1">단락1</p>
+    <p id="p2">단락2</p>
+    <p id="p3">단락3</p>
+  </div>
+
+  <script src="js/dom.js"></script>
+</body>
+```
+
+```js
+const elem = document.getElementById("p2");
+
+p2.remove();
+```
+
+### 14.7.5. 노드 수정하기
+
+```html
+<body>
+  <div id="box">
+    <p id="p1">단락1</p>
+    <p id="p2">단락2</p>
+    <p id="p3">단락3</p>
+  </div>
+
+  <script src="js/dom.js"></script>
+</body>
+```
+
+```js
+const elem = document.createElement("p");
+const text = document.createTextNode("변경한 단락");
+
+elem.appendChild(text);
+
+const p1 = document.getElementById("p1");
+document.getElementById("box").replaceChild(elem, p1);
+```
